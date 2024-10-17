@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/admin.css" />
 </head>
 
-<body>
+<body onload="helloToast()">
 	<div class="sidebar">
 		<div class="logo-details">
             <img src="../assets/logo.png" alt=""/>
@@ -51,6 +51,15 @@
 			<h1>Dashboard</h1>
 		</div>
 	</section>
+	<div id="snackbar">Selamat Datang Admin</div>
+
+	<script>
+	function helloToast() {
+	var x = document.getElementById("snackbar");
+	x.className = "show";
+	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+	}
+	</script>
 </body>
 
 </html>
