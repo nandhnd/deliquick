@@ -18,19 +18,19 @@
 		</div>
 		<ul class="nav-links">
 			<li>
-				<a href="dashboard.html" class="">
+				<a href="dashboard.php" class="">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="links_name">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="delivery.html" class="active">
+				<a href="delivery.php" class="active">
 					<i class='bx bxs-truck'></i>
 					<span class="links_name">Deliveries</span>
 				</a>
 			</li>
 			<li>
-				<a href="#">
+				<a id="logout">
 					<i class="bx bx-log-out"></i>
 					<span class="links_name">Log out</span>
 				</a>

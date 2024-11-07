@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ./login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,19 +26,19 @@
 		</div>
 		<ul class="nav-links">
 			<li>
-				<a href="dashboard.html" class="active">
+				<a href="dashboard.php" class="active">
 					<i class='bx bxs-dashboard' ></i>
 					<span class="links_name">Dashboard</span>
 				</a>
 			</li>
 			<li>
-				<a href="delivery.html">
+				<a href="delivery.php">
 					<i class='bx bxs-truck'></i>
 					<span class="links_name">Deliveries</span>
 				</a>
 			</li>
 			<li>
-				<a href="#" id="logout">
+				<a id="logout">
 					<i class="bx bx-log-out"></i>
 					<span class="links_name">Log out</span>
 				</a>
@@ -44,7 +52,7 @@
 			</div>
 			<div class="profile-details" id="profile">
                 <i class='bx bxs-user-circle'></i>
-				<span class="admin_name">Admin</span>
+				<span class="admin_name"><?= $_SESSION['username'] ?></span>
 			</div>
 		</nav>
 		<div class="home-content">
@@ -52,7 +60,7 @@
 		</div>
 	</section>
 	<!-- toast -->
-	<div id="snackbar">Selamat Datang Admin</div>
+	<div id="snackbar">Selamat Datang <?= $_SESSION['username'] ?></div>
 	<!-- logout modal -->
 	<div id="logoutModal" class="modal">
 		<div class="modal-content">
@@ -66,7 +74,7 @@
 		<div class="modal-content form-profile">
 		  <h2>My profile</h2>
             <form action="index.html">
-            <input class="input" type="text" name="username" placeholder="admin" readonly/>
+            <input class="input" type="text" name="username" placeholder="<?= $_SESSION['username'] ?>" readonly/>
             <input class="input" type="text" name="phone" placeholder="081123321123"/>
             <button type="button" class="btn btn-secondary" id="closeProfileModal">Close</button>
             </form>
@@ -93,7 +101,7 @@
 	}
 
 	function confirmLogout() {
-		window.location.href = "../login.html";
+		window.location.href = "../logout.php";
 	}
 
 	function hideModal() {

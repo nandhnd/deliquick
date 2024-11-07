@@ -1,3 +1,23 @@
+<?php
+session_start();
+
+$validUsername = "nanda";
+$validPassword = "password123"; 
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $inputUsername = $_POST['username'];
+    $inputPassword = $_POST['password'];
+
+    if ($inputUsername === $validUsername && $inputPassword === $validPassword) {
+        $_SESSION['username'] = $inputUsername;
+        header("Location: admin/dashboard.php");
+        exit();
+    } else {
+        $errorMessage = "Invalid username or password.";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +43,8 @@
                 <img src="assets/logo.png" alt=""/>
             </div>
             <h3>Login</h3>
-            <form action="index.html">
+            <?php if (isset($errorMessage)) echo "<p style='color:red;'>$errorMessage</p>"; ?>
+            <form method="post" action="">
             <input class="input" type="text" name="username" placeholder="Email/Phone Number" required/>
             <input class="input" type="password" name="password" placeholder="Password" required/>
             <button type="submit" class="btn_login" name="login" id="login">Login</button>
