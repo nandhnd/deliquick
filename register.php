@@ -18,12 +18,11 @@
                 <img src="assets/logo.png" alt=""/>
             </div>
             <h3>Register</h3>
-            <form action="login.html">
+            <form action="register-proses.php" method="post">
               <input class="input" type="text" name="username" placeholder="Username" required/>
-              <input class="input" type="text" name="emailphone" placeholder="Email" required/>
-              <input class="input" type="number" name="phone" placeholder="Phone Number" required/>
+              <input class="input" type="text" name="email" placeholder="Email" required/>
               <input class="input" type="password" name="password" placeholder="Password" required/>
-              <button type="submit" class="btn_login" name="login" id="login">Register</button>
+              <button type="submit" class="btn_login" name="register" id="register">Register</button>
             </form>
 	  </div>
 	</main>

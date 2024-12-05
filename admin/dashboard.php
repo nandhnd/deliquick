@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['username'])) {
-    header("Location: ./login.php");
+    header("Location: ../login.php");
     exit();
 }
 ?>
@@ -35,6 +35,12 @@ if (!isset($_SESSION['username'])) {
 				<a href="delivery.php">
 					<i class='bx bxs-truck'></i>
 					<span class="links_name">Deliveries</span>
+				</a>
+			</li>
+			<li>
+				<a href="user.php" class="">
+					<i class='bx bxs-user' ></i>
+					<span class="links_name">User</span>
 				</a>
 			</li>
 			<li>

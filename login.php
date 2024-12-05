@@ -1,23 +1,3 @@
-<?php
-session_start();
-
-$validUsername = "nanda";
-$validPassword = "password123"; 
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $inputUsername = $_POST['username'];
-    $inputPassword = $_POST['password'];
-
-    if ($inputUsername === $validUsername && $inputPassword === $validPassword) {
-        $_SESSION['username'] = $inputUsername;
-        header("Location: admin/dashboard.php");
-        exit();
-    } else {
-        $errorMessage = "Invalid username or password.";
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,12 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <h3>Login</h3>
             <?php if (isset($errorMessage)) echo "<p style='color:red;'>$errorMessage</p>"; ?>
-            <form method="post" action="">
-            <input class="input" type="text" name="username" placeholder="Email/Phone Number" required/>
+            <form method="post" action="login-proses.php">
+            <input class="input" type="text" name="email" placeholder="Email/Phone Number" required/>
             <input class="input" type="password" name="password" placeholder="Password" required/>
             <button type="submit" class="btn_login" name="login" id="login">Login</button>
             </form>
-            <a href="register.html" class="link-register">Register</a>
+            <a href="register.php" class="link-register">Register</a>
       </div>
 	  </div>
 	</main>

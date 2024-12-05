@@ -1,269 +1,447 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 /* sidebar */
 .sidebar {
-	position: fixed;
-	height: 100%;
-	width: 240px;
-	background: #00b2d8;
-	transition: all 0.5s ease;
+  position: fixed;
+  height: 100%;
+  width: 240px;
+  background: #00b2d8;
+  transition: all 0.5s ease;
 }
 .sidebar.active {
-	width: 60px;
+  width: 60px;
 }
 .sidebar .logo-details {
-	height: 80px;
-	display: flex;
-	align-items: center;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 .sidebar .logo-details i {
-	font-size: 28px;
-	font-weight: 500;
-	color: #fff;
-	min-width: 60px;
-	text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  color: #fff;
+  min-width: 60px;
+  text-align: center;
 }
-.sidebar .logo-details img{
-	width: 60px;
+.sidebar .logo-details img {
+  width: 60px;
 }
 .sidebar .logo-details .logo_name {
-	color: #fff;
-	font-size: 24px;
-	font-weight: 800;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 800;
 }
 .sidebar .nav-links {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 .sidebar .nav-links li {
-	position: relative;
-	list-style: none;
-	height: 50px;
+  position: relative;
+  list-style: none;
+  height: 50px;
 }
 .sidebar .nav-links li a {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	text-decoration: none;
-	transition: all 0.4s ease;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
 }
 .sidebar .nav-links li a.active {
-	background: #009bbd;
+  background: #009bbd;
 }
 .sidebar .nav-links li a:hover {
-	background: #009bbd;
+  background: #009bbd;
 }
 .sidebar .nav-links li i {
-	min-width: 60px;
-	text-align: center;
-	font-size: 18px;
-	color: #fff;
+  min-width: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #fff;
 }
 .sidebar .nav-links li a .links_name {
-	color: #fff;
-	font-size: 15px;
-	font-weight: 400;
-	white-space: nowrap;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
 }
 
 /* main content */
 .home-section {
-	position: relative;
-	background: #f5f5f5;
-	min-height: 100vh;
-	width: calc(100% - 240px);
-	left: 240px;
-	transition: all 0.5s ease;
+  position: relative;
+  background: #f5f5f5;
+  min-height: 100vh;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.5s ease;
 }
 .sidebar.active ~ .home-section {
-	width: calc(100% - 60px);
-	left: 60px;
+  width: calc(100% - 60px);
+  left: 60px;
 }
 .home-section nav {
-	display: flex;
-	justify-content: space-between;
-	height: 80px;
-	background: #fff;
-	display: flex;
-	align-items: center;
-	width: 100%;
-	left: 240px;
-	z-index: 100;
-	padding: 0 20px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-	transition: all 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  left: 240px;
+  z-index: 100;
+  padding: 0 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease;
 }
 .sidebar.active ~ .home-section nav {
-	left: 60px;
-	width: calc(100% - 60px);
+  left: 60px;
+  width: calc(100% - 60px);
 }
 .home-section nav .sidebar-button {
-	display: flex;
-	align-items: center;
-	font-size: 24px;
-	font-weight: 500;
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
 }
 nav .sidebar-button i {
-	font-size: 35px;
-	margin-right: 10px;
+  font-size: 35px;
+  margin-right: 10px;
 }
 
 .home-section nav .profile-details {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: #fff;
-	border: 0;
-	border-radius: 6px;
-	height: 50px;
-	min-width: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 0;
+  border-radius: 6px;
+  height: 50px;
+  min-width: 190px;
 }
 
-.home-section nav .profile-details i{
-	font-size: 28px;
-	font-weight: 500;
-	min-width: 60px;
-	text-align: center;
+.home-section nav .profile-details i {
+  font-size: 28px;
+  font-weight: 500;
+  min-width: 60px;
+  text-align: center;
 }
 
-.home-section nav .profile-details i,span:hover {
-	cursor: pointer;
+.home-section nav .profile-details i,
+span:hover {
+  cursor: pointer;
 }
 
 .home-section .home-content {
-	position: relative;
-	padding: 20px;
+  position: relative;
+  padding: 20px;
 }
 #snackbar {
-	visibility: hidden;
-	min-width: 250px;
-	margin-left: -125px;
-	background-color: #333;
-	color: #fff;
-	text-align: center;
-	border-radius: 2px;
-	padding: 16px;
-	position: fixed;
-	z-index: 1;
-	left: 50%;
-	bottom: 30px;
-	font-size: 17px;
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
 }
 
 #snackbar.show {
-	visibility: visible;
-	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
 }
 
 @-webkit-keyframes fadein {
-	from {bottom: 0; opacity: 0;} 
-	to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @keyframes fadein {
-	from {bottom: 0; opacity: 0;}
-	to {bottom: 30px; opacity: 1;}
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
 }
 
 @-webkit-keyframes fadeout {
-	from {bottom: 30px; opacity: 1;} 
-	to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 @keyframes fadeout {
-	from {bottom: 30px; opacity: 1;}
-	to {bottom: 0; opacity: 0;}
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
 }
 
 /* Modal container */
 .modal {
-	display: none; /* Hidden by default */
-	position: fixed;
-	z-index: 1;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 }
 
 /* Modal content */
 .modal-content {
-	background-color: #fefefe;
-	margin: 15% auto;
-	padding: 30px;
-	border: 1px solid #888;
-	width: 375px;
-	text-align: center;
-	border-radius: 10px;
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 375px;
+  text-align: center;
+  border-radius: 10px;
 }
 
-.modal .btn{
-	margin-top: 20px;
+.modal .btn {
+  margin-top: 20px;
 }
 
 .close:hover,
 .close:focus {
-	color: black;
-	cursor: pointer;
+  color: black;
+  cursor: pointer;
 }
 
 .btn {
-	padding: 8px 16px;
-	border-radius: 10px;
-	border: none;
-	cursor: pointer;
-	color: white;
-  }
+  padding: 8px 16px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
 
-  .btn-primary {
-	background-color: #00b2d8;
-	color: white;
-  }
+.btn-primary {
+  background-color: #00b2d8;
+  color: white;
+}
 
-  .btn-primary:hover {
-	background-color: #009bbd;
-  }
-  
-  .btn-secondary {
-	background-color: #6c757d;
-	color: white;
-  }
-  
-  .btn-secondary:hover {
-	background-color: #5a6268;
-  }
-  
+.btn-primary:hover {
+  background-color: #009bbd;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
 /* profile */
 
 .form-pr0file {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 30%;
-	background-color: white;
-	padding: 30px;
-    padding-bottom: 50px;
-	margin: 0 auto;
-	box-shadow: 0 6px 12px 4px rgba(0, 0, 0, 0.15);
-	border-radius: 10px;
-  }
-  
-  .form-profile .input {
-	width: 100%;
-	margin: 10px 0;
-	padding: 10px;
-    border: none;
-    border-bottom: 1px solid rgb(148, 148, 148)
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  background-color: white;
+  padding: 30px;
+  padding-bottom: 50px;
+  margin: 0 auto;
+  box-shadow: 0 6px 12px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
 
-  #closeProfileModal{
-	display: block;
-	margin-left: auto;
-  }
+.form-profile .input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid rgb(148, 148, 148);
+}
+
+#closeProfileModal {
+  display: block;
+  margin-left: auto;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 10px 10px 10px;
+}
+
+/* Table Styling */
+.card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.card table th,
+.card table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.card table th {
+  background-color: #f1f1f1;
+  font-weight: 600;
+}
+
+.card table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.card table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Button Styling */
+.card .btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.card .btn-add {
+  background-color: #4caf50;
+  color: white;
+}
+
+.card .btn-add:hover {
+  background-color: #45a049;
+}
+
+.card .btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.card .btn-delete:hover {
+  background-color: #e53935;
+}
+
+.card .btn-edit {
+  background-color: #3682f4;
+  color: white;
+}
+
+.card .btn-edit:hover {
+  background-color: #3280f5;
+}
+
+.modal-content-form {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 60%;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Styling the form inside the modal */
+.modal-content-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Label styling for each form input */
+.modal-content-form form label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+  width: 100%;
+  text-align: left;
+  float: left;
+}
+
+/* Input fields inside the modal form */
+.modal-content-form form input[type="text"],
+.modal-content-form form input[type="email"],
+.modal-content-form form input[type="password"],
+.modal-content-form form select {
+  width: 100%; /* Make input fields full-width */
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+/* Focus effect for form inputs */
+.modal-content-form form input[type="text"]:focus,
+.modal-content-form form input[type="email"]:focus,
+.modal-content-form form input[type="password"]:focus,
+.modal-content-form form select:focus {
+  border-color: #00b2d8;
+  box-shadow: 0 0 5px rgba(0, 178, 216, 0.5);
+}
+
+/* Add some space between form elements */
+.modal-content-form form .form-group {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+/* Styling for the buttons in the form */
+.modal-content-form form .button-group {
+  display: flex; /* Align buttons side by side */
+  margin-left: auto;
+  justify-content: flex-end; /* Add space between buttons */
+  width: 50%;
+  gap: 10px; /* Space between buttons */
+}
+
+/* General button styling */
+.modal-content-form form button {
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  width: 32%; /* Set a specific width for buttons to align them */
+}
