@@ -5,6 +5,13 @@ if (!isset($_SESSION['username'])) {
     header("Location: ../login.php");
     exit();
 }
+
+include ('../koneksi.php');
+
+$total_delivery = $koneksi->query("SELECT COUNT(*) AS total_delivery FROM delivery")->fetch_assoc()['total_delivery'];
+$completed_delivery = $koneksi->query("SELECT COUNT(*) AS completed_delivery FROM delivery WHERE status = 'Completed'")->fetch_assoc()['completed_delivery'];
+$onProgress_delivery = $koneksi->query("SELECT COUNT(*) AS onProgress_delivery FROM delivery WHERE status != 'Completed'")->fetch_assoc()['onProgress_delivery'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +45,12 @@ if (!isset($_SESSION['username'])) {
 				</a>
 			</li>
 			<li>
+				<a href="transaction.php">
+					<i class='bx bxs-notepad'></i>
+					<span class="links_name">Transaction</span>
+				</a>
+			</li>
+			<li>
 				<a href="user.php" class="">
 					<i class='bx bxs-user' ></i>
 					<span class="links_name">User</span>
@@ -61,9 +74,39 @@ if (!isset($_SESSION['username'])) {
 				<span class="admin_name"><?= $_SESSION['username'] ?></span>
 			</div>
 		</nav>
-		<div class="home-content">
-			<h1>Dashboard</h1>
+		<div class="card">
+        <h2>Dashboard</h2>
+		<div style="display: flex;">
+			<div class="data-widget">
+				<div class="widget-header">
+					<h3>Delivery</h3>
+				</div>
+				<div class="widget-content">
+					<h1><?php echo $total_delivery; ?></h1>
+					<p>Todal Delivery in the database</p>
+				</div>
+			</div>
+			<div class="data-widget">
+				<div class="widget-header">
+					<h3>Completed Delivery</h3>
+				</div>
+				<div class="widget-content">
+					<h1><?php echo $completed_delivery; ?></h1>
+					<p>Completed Delivery in the database</p>
+				</div>
+			</div>
+			<div class="data-widget">
+				<div class="widget-header">
+					<h3>On Progress Delivery</h3>
+				</div>
+				<div class="widget-content">
+					<h1><?php echo $onProgress_delivery; ?></h1>
+					<p>Still On Progress delivery in the database</p>
+				</div>
+			</div>
+			</div>
 		</div>
+        
 	</section>
 	<!-- toast -->
 	<div id="snackbar">Selamat Datang <?= $_SESSION['username'] ?></div>
@@ -85,7 +128,7 @@ if (!isset($_SESSION['username'])) {
             <button type="button" class="btn btn-secondary" id="closeProfileModal">Close</button>
             </form>
 		</div>
-	  </div>
+	</div>
 
 	<script>
 	//toast

@@ -397,6 +397,7 @@ span:hover {
 
 /* Input fields inside the modal form */
 .modal-content-form form input[type="text"],
+.modal-content-form form input[type="number"],
 .modal-content-form form input[type="email"],
 .modal-content-form form input[type="password"],
 .modal-content-form form select {
@@ -408,6 +409,9 @@ span:hover {
   font-size: 16px;
   box-sizing: border-box;
   outline: none;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 /* Focus effect for form inputs */
@@ -444,4 +448,34 @@ span:hover {
   transition: background-color 0.3s ease;
   border: none;
   width: 32%; /* Set a specific width for buttons to align them */
+}
+
+.data-widget {
+  max-width: 250px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f7f9fc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: Arial, sans-serif;
+  border: 1px solid #ddd;
+}
+
+.widget-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.widget-content h1 {
+  margin: 10px 0;
+  font-size: 48px;
+  color: #007bff;
+}
+
+.widget-content p {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
 }

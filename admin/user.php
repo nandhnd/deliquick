@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['username'])) {
+    header("Location: ../login.php");
+    exit();
+}
+
 include ('../koneksi.php');
 
 $sql = "SELECT id, name, email, role FROM user";
@@ -35,6 +42,12 @@ $result = $koneksi->query($sql);
 					<span class="links_name">Deliveries</span>
 				</a>
 			</li>
+            <li>
+				<a href="transaction.php">
+					<i class='bx bxs-notepad'></i>
+					<span class="links_name">Transaction</span>
+				</a>
+			</li>
 			<li>
 				<a href="user.php" class="active">
 					<i class='bx bxs-user' ></i>
@@ -50,13 +63,13 @@ $result = $koneksi->query($sql);
 		</ul>
 	</div>
 	<section class="home-section">
-		<nav>
+        <nav>
 			<div class="sidebar-button">
 				<i class="bx bx-menu sidebarBtn"></i>
 			</div>
-			<div class="profile-details">
+			<div class="profile-details" id="profile">
                 <i class='bx bxs-user-circle'></i>
-				<span class="admin_name">Admin</span>
+				<span class="admin_name"><?= $_SESSION['username'] ?></span>
 			</div>
 		</nav>
         <div class="card">
@@ -151,6 +164,25 @@ $result = $koneksi->query($sql);
                 </form>
             </div>
         </div>
+        <!-- logout modal -->
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <p>Are you sure you want to log out?</p>
+                <button id="confirmLogout" class="btn btn-primary">Yes</button>
+                <button id="cancelLogout" class="btn btn-secondary">No</button>
+            </div>
+        </div>
+        <!-- profile modal -->
+        <div id="profileModal" class="modal">
+            <div class="modal-content form-profile">
+            <h2>My profile</h2>
+                <form action="index.html">
+                <input class="input" type="text" name="username" placeholder="<?= $_SESSION['username'] ?>" readonly/>
+                <input class="input" type="text" name="phone" placeholder="081123321123"/>
+                <button type="button" class="btn btn-secondary" id="closeProfileModal">Close</button>
+                </form>
+            </div>
+        </div>
 
         <script>
             // Open the modal
@@ -182,6 +214,45 @@ $result = $koneksi->query($sql);
 
             function closeEditModal() {
                 document.getElementById('editModal').style.display = 'none';
+            }
+            //logout modal
+            document.getElementById("logout").addEventListener("click", showModal);
+            document.getElementById("confirmLogout").addEventListener("click", confirmLogout);
+            document.getElementById("cancelLogout").addEventListener("click", hideModal);
+
+            const modal = document.getElementById("logoutModal");
+
+            function showModal() {
+                document.getElementById("logoutModal").style.display = "block";
+            }
+
+            function confirmLogout() {
+                window.location.href = "../logout.php";
+            }
+
+            function hideModal() {
+                document.getElementById("logoutModal").style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == document.getElementById("logoutModal")) {
+                    document.getElementById("logoutModal").style.display = "none";
+                }
+                if (event.target == document.getElementById("profileModal")) {
+                    document.getElementById("profileModal").style.display = "none";
+                }
+            }
+
+            //profile modal
+            document.getElementById("profile").addEventListener("click", showProfileModal);
+            document.getElementById("closeProfileModal").addEventListener("click", hideProfileModal);
+
+            function showProfileModal() {
+                document.getElementById("profileModal").style.display = "block";
+            }
+
+            function hideProfileModal() {
+                document.getElementById("profileModal").style.display = "none";
             }
         </script>
 	</section>
