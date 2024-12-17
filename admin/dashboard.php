@@ -50,12 +50,14 @@ $onProgress_delivery = $koneksi->query("SELECT COUNT(*) AS onProgress_delivery F
 					<span class="links_name">Transaction</span>
 				</a>
 			</li>
+			<?php if($_SESSION['role']=='super admin'){ ?>
 			<li>
-				<a href="user.php" class="">
+				<a href="user.php">
 					<i class='bx bxs-user' ></i>
 					<span class="links_name">User</span>
 				</a>
 			</li>
+            <?php } ?>
 			<li>
 				<a id="logout">
 					<i class="bx bx-log-out"></i>
@@ -83,7 +85,7 @@ $onProgress_delivery = $koneksi->query("SELECT COUNT(*) AS onProgress_delivery F
 				</div>
 				<div class="widget-content">
 					<h1><?php echo $total_delivery; ?></h1>
-					<p>Todal Delivery in the database</p>
+					<p>Total Delivery in the database</p>
 				</div>
 			</div>
 			<div class="data-widget">
@@ -124,7 +126,7 @@ $onProgress_delivery = $koneksi->query("SELECT COUNT(*) AS onProgress_delivery F
 		  <h2>My profile</h2>
             <form action="index.html">
             <input class="input" type="text" name="username" placeholder="<?= $_SESSION['username'] ?>" readonly/>
-            <input class="input" type="text" name="phone" placeholder="081123321123"/>
+            <input class="input" type="text" name="email" placeholder="<?= $_SESSION['email'] ?>"/>
             <button type="button" class="btn btn-secondary" id="closeProfileModal">Close</button>
             </form>
 		</div>

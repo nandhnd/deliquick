@@ -25,7 +25,7 @@
             <h3>Login</h3>
             <?php if (isset($errorMessage)) echo "<p style='color:red;'>$errorMessage</p>"; ?>
             <form method="post" action="login-proses.php">
-            <input class="input" type="text" name="email" placeholder="Email/Phone Number" required/>
+            <input class="input" type="text" name="email" placeholder="Email" required/>
             <input class="input" type="password" name="password" placeholder="Password" required/>
             <button type="submit" class="btn_login" name="login" id="login">Login</button>
             </form>

@@ -19,11 +19,11 @@
 					<i class="fas fa-bars"></i>
 				</label>
 				<ul>
-					<li><a href="index.html">Home</a></li>
-					<li><a href="categories/categories.html">Services</a></li>
-                    <li><a href="categories/categories.html">Search</a></li>
-                    <li><a href="categories/categories.html">Contact Us</a></li>
-                    <li><a href="categories/categories.html">FAQ</a></li>
+					<li><a href="index.php">Home</a></li>
+					<li><a href="#">Services</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
                     <li><a href="login.html" class="btn_login">User</a></li>
 				</ul>
 			</nav>

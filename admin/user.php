@@ -6,6 +6,10 @@ if (!isset($_SESSION['username'])) {
     exit();
 }
 
+if ($_SESSION['role']!='super admin'){
+    header("Location: dashboard.php");
+}
+
 include ('../koneksi.php');
 
 $sql = "SELECT id, name, email, role FROM user";
@@ -48,12 +52,14 @@ $result = $koneksi->query($sql);
 					<span class="links_name">Transaction</span>
 				</a>
 			</li>
+            <?php if($_SESSION['role']=='super admin'){ ?>
 			<li>
 				<a href="user.php" class="active">
 					<i class='bx bxs-user' ></i>
 					<span class="links_name">User</span>
 				</a>
 			</li>
+            <?php } ?>
 			<li>
 				<a id="logout">
 					<i class="bx bx-log-out"></i>
@@ -95,12 +101,13 @@ $result = $koneksi->query($sql);
                             echo "<td>" . $row['name'] . "</td>";
                             echo "<td>" . $row['email'] . "</td>";
                             echo "<td>" . $row['role'] . "</td>";
+                            if($row['email']!='superadmin'){
                             echo "<td>
                                     <button class='btn btn-edit' onclick='openEditModal(" . json_encode($row) . ")'>Edit</button>
                                 </td>";
                             echo "<td>
                                     <a href='user-delete.php/?id=". $row['id'] . "'><button class='btn btn-delete'>Delete</button></a>
-                                </td>";
+                                </td>";}
                             echo "</tr>";
                         }
                     } else {
@@ -178,7 +185,7 @@ $result = $koneksi->query($sql);
             <h2>My profile</h2>
                 <form action="index.html">
                 <input class="input" type="text" name="username" placeholder="<?= $_SESSION['username'] ?>" readonly/>
-                <input class="input" type="text" name="phone" placeholder="081123321123"/>
+                <input class="input" type="text" name="email" placeholder="<?= $_SESSION['email'] ?>"/>
                 <button type="button" class="btn btn-secondary" id="closeProfileModal">Close</button>
                 </form>
             </div>

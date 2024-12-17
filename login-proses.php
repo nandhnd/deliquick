@@ -15,6 +15,7 @@ if(isset($_POST['login'])) {
             session_start();
             $_SESSION['username'] = $username;
             $_SESSION['role'] = $row['role'];
+            $_SESSION['email'] = $row['email'];
             header('location:admin/dashboard.php');
         }
       } else { 
